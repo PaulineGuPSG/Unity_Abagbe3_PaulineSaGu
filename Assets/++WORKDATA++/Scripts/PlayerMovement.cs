@@ -17,11 +17,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         float move = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(move * moveSpeed, rb.velocity.y);
+        rb.linearVelocity = new Vector2(move * moveSpeed, rb.linearVelocity.y);
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             isGrounded = false;
             if (jumpsound) jumpsound.Play();
         }
